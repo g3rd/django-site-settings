@@ -36,6 +36,8 @@ INSTALLED_APPS += (
 
 - [ ] Middleware to pull settings for views
 - [ ] Template tag and Template Context Processor
+- [ ] Documentation
+- [ ] Tests
 
 
 ## Change Log
