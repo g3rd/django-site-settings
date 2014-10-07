@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from digitalframework_web import __version__
+from site_settings import __version__
 
 
 setup(
