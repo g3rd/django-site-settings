@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.contrib.sites.managers import CurrentSiteManager
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -17,6 +18,9 @@ class SettingQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
 
 class SettingManager(PolymorphicManager, TranslatableManager):
     queryset_class = SettingQuerySet
+
+    def current_site(self):
+        return
 
 
 @python_2_unicode_compatible
@@ -47,6 +51,7 @@ class Setting(PolymorphicModel, TranslatableModel):
     weight = models.IntegerField(_('weight'), default=0)
 
     objects = SettingManager()
+    on_site = CurrentSiteManager()
 
     def __str__(self):
         return '{} {}'.format(self.site.name, self.key.name)
